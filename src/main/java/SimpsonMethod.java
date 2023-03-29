@@ -10,8 +10,8 @@ public class SimpsonMethod {
         int i,z;
         double h,s;
         double e = 0.0000001;
-        n=n+n;
-        s = f(a)*f(b);
+        n=2*n; // количество шагов
+        s = f(a)*f(b); // итоговая сумма
         h = (b-a)/n;
         z = 4;
 
@@ -36,8 +36,8 @@ public class SimpsonMethod {
                     if (a<=0 & b>=0){
                         System.out.println("Разрыв устранен.\n" +
                                 "Взято среднее от значений от двух соседних точках разрыва в точке 0.");
-                        var nextperem = f(a+i*h + e);
-                        var privperem = f(a+i*h - e);
+                        double nextperem = f(a+i*h + e);
+                        double privperem = f(a+i*h - e);
                         perem = (nextperem+privperem)/2;
                     }
                 }
