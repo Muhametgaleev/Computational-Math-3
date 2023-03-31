@@ -5,7 +5,7 @@ public class SimpsonMethod {
         this.variant = variant;
     }
 
-    public double integrate(double a, double b) throws MyException {
+    public double integrate(double a, double b) throws MyException, MyExceptionODZ {
         int n = 1000000;
         int i,z;
         double h,s;
@@ -17,9 +17,10 @@ public class SimpsonMethod {
 
         // если начинаем интегрировать с точки разрыва, то s становится NaN и все ломает
         if(Double.isNaN(s)){
-            s = f(a+h-e)*f(b+h-e);
-            System.out.println("Разрыв устранен.\n" +
-                    "Взято среднее от значений от двух соседних точках разрыва в точке 0.");
+//            s = f(a+h-e)*f(b+h-e);
+//            System.out.println("Разрыв устранен.\n" +
+//                    "Взято среднее от значений от двух соседних точках разрыва в точке 0.");
+            throw new MyExceptionODZ("ОДЗ");
         }
 
         if (variant == 1 & ((a<b & b<0) | (b>0 & a>b))){

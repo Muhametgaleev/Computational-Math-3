@@ -21,6 +21,8 @@ public class Start {
         } catch (MyException e){
             System.out.println("Вы чаво? Мы не можем это интегрировать(\n" +
                     "Это разрыв второго рода...");
+        }catch (MyExceptionODZ r){
+            System.out.println("ОДЗ не соблюдается");
         }
     }
 }
